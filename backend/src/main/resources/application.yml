@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: casefile-api
+  datasource:
+    url: jdbc:h2:file:./data/casefile;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+server:
+  port: 8080
+  error:
+    include-message: never
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+casefile:
+  generator-url: ${GENERATOR_URL:http://localhost:8001}
+  generator-secret: ${GENERATOR_SECRET:local-development-only}
+  cors-origins: ${CORS_ORIGINS:http://localhost:5173,http://127.0.0.1:5173}
+---
+spring:
+  config:
+    activate:
+      on-profile: postgres
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/casefile}
+    username: ${DATABASE_USER:casefile}
+    password: ${DATABASE_PASSWORD}

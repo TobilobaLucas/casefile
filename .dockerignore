@@ -1,0 +1,13 @@
+node_modules
+dist
+.git
+.cache
+.tools
+.sites-runtime
+artifacts
+test-results
+playwright-report
+backend/target
+backend/data
+generator/__pycache__
+.env

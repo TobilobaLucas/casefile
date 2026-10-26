@@ -1,0 +1,152 @@
+{
+  "id": "MX-41",
+  "title": "The Midnight Exchange",
+  "subtitle": "Nothing disappears without a trace.",
+  "location": "Meridian Museum, Lagos",
+  "incidentTime": "21:10",
+  "seed": 41,
+  "difficulty": "Rookie detective",
+  "briefing": "At 21:10, the lights went out at the Meridian Museum. Ninety seconds later, the Aster prototype was gone. Four people had access. Everyone has an alibi. Someone is lying. Follow the paper trail, question the suspects, and find out who made the exchange.",
+  "suspects": [
+    {
+      "id": "mara",
+      "name": "Mara Vale",
+      "role": "The curator",
+      "badge": "M-17",
+      "locker": "04",
+      "avatar": "mara",
+      "color": "#b99b7a",
+      "quote": "Some things belong in a museum. Others don't.",
+      "motive": "Her exhibition was about to lose its funding.",
+      "alibi": "Reports waiting in the main atrium.",
+      "statement": "At 21:05 I was in the main atrium, waiting for the power to return. My badge is M-17 and my assigned locker is 04. The east gallery was closed for the evening. You can check the floor plan."
+    },
+    {
+      "id": "elias",
+      "name": "Elias Reed",
+      "role": "The security chief",
+      "badge": "N-41",
+      "locker": "12",
+      "avatar": "elias",
+      "color": "#91a59c",
+      "quote": "Nothing gets past me. Usually.",
+      "motive": "A private collector had offered to clear his debts.",
+      "alibi": "Claims to have stayed in the east gallery.",
+      "statement": "I was in the east gallery from 21:00 until the alarm. My badge, N-41, never left my pocket. Locker 12 stayed locked all night. If someone used either, it wasn't me."
+    },
+    {
+      "id": "june",
+      "name": "June Park",
+      "role": "The conservator",
+      "badge": "C-26",
+      "locker": "08",
+      "avatar": "june",
+      "color": "#b6a8b8",
+      "quote": "Look closely. The details always survive.",
+      "motive": "She believed the prototype had been acquired illegally.",
+      "alibi": "Reports waiting in the main atrium.",
+      "statement": "At 21:05 I was in the main atrium, waiting for the power to return. My badge is C-26 and my assigned locker is 08. The east gallery was closed for the evening. You can check the floor plan."
+    },
+    {
+      "id": "theo",
+      "name": "Theo Cross",
+      "role": "The event technician",
+      "badge": "T-09",
+      "locker": "21",
+      "avatar": "theo",
+      "color": "#b6ad87",
+      "quote": "I keep the lights on. That's the job.",
+      "motive": "The museum had withheld three months of his pay.",
+      "alibi": "Reports waiting in the main atrium.",
+      "statement": "At 21:05 I was in the main atrium, waiting for the power to return. My badge is T-09 and my assigned locker is 21. The east gallery was closed for the evening. You can check the floor plan."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "security-still",
+      "title": "90 seconds of darkness",
+      "kind": "photo",
+      "label": "EXHIBIT 01 · CCTV",
+      "summary": "Camera 04. East corridor. 21:10.",
+      "body": "The feed shows the east corridor before the blackout. The east gallery shutters are already down. The camera loses power at 21:10:00 and returns at 21:11:30. The archive door is open when the feed returns. No face is visible; this image alone identifies nobody.",
+      "timestamp": "21:10",
+      "source": "Security camera 04",
+      "x": 52,
+      "y": 35,
+      "rotation": -4
+    },
+    {
+      "id": "access-log",
+      "title": "The door remembers",
+      "kind": "log",
+      "label": "EXHIBIT 02 · ACCESS LOG",
+      "summary": "One badge. One very convenient visit.",
+      "body": "OFFLINE CONTROLLER EXPORT\n21:07:51  MAIN ATRIUM   emergency lights ON\n21:08:14  ARCHIVE A     badge N-41 — ACCESS GRANTED\n21:10:00  CAMERA GRID   power lost\n21:11:30  CAMERA GRID   power restored\n\nThe archive controller has a backup battery. Its records survived. A badge can be borrowed: corroborate this record with physical evidence.",
+      "timestamp": "21:08",
+      "source": "Battery-backed access controller",
+      "x": 350,
+      "y": 57,
+      "rotation": 3
+    },
+    {
+      "id": "floor-plan",
+      "title": "A way out",
+      "kind": "map",
+      "label": "EXHIBIT 03 · FLOOR PLAN",
+      "summary": "The service corridor wasn't on the tour.",
+      "body": "The archive connects to the cloakroom through a staff-only service corridor. The east gallery was shuttered at 20:45 and cannot be entered from that corridor. The main atrium remained open. A trip from archive to cloakroom takes approximately one minute.",
+      "timestamp": "20:45",
+      "source": "Facilities evacuation plan",
+      "x": 650,
+      "y": 22,
+      "rotation": -3
+    },
+    {
+      "id": "locker-receipt",
+      "title": "A paper trail",
+      "kind": "receipt",
+      "label": "EXHIBIT 04 · CLOAKROOM",
+      "summary": "A transfer somebody hoped you'd miss.",
+      "body": "MERIDIAN CLOAKROOM — MANUAL TRANSFER\nItem: ASTER / transport case 001\nDestination: assigned locker 12\nReceived: 21:09\nSeal: intact\n\nThe attendant saw the locker holder place the case inside, using their personal locker key. Locker assignments are listed in the suspect dossiers. The case was later recovered there, empty.",
+      "timestamp": "21:09",
+      "source": "Cloakroom attendant's duplicate",
+      "x": 80,
+      "y": 355,
+      "rotation": 3
+    },
+    {
+      "id": "voice-note",
+      "title": "An unfinished message",
+      "kind": "audio",
+      "label": "EXHIBIT 05 · TRANSCRIPT",
+      "summary": "“We only need a minute and a half.”",
+      "body": "Recovered voicemail transcript, 20:38:\n\"The cameras don't have backup power. We only need a minute and a half. The service corridor gets us to the lockers. Don't call me again.\"\n\nThe recording is distorted. The caller cannot be identified by voice. It establishes preparation and the intended route, not the caller's identity.",
+      "timestamp": "20:38",
+      "source": "Unlisted number · voicemail export",
+      "x": 365,
+      "y": 370,
+      "rotation": -3
+    },
+    {
+      "id": "exhibition-note",
+      "title": "More than a prototype",
+      "kind": "note",
+      "label": "EXHIBIT 06 · CURATOR'S NOTE",
+      "summary": "An object with a complicated past.",
+      "body": "The Aster prototype was due to be unveiled tomorrow. Its ownership is disputed; its insurance valuation is substantial. An unsigned note reads: \"Before you ask who wanted it, ask who could actually move it.\" Several suspects had motives. Motive alone is not proof.",
+      "timestamp": "18:20",
+      "source": "Exhibition preparation desk",
+      "x": 660,
+      "y": 335,
+      "rotation": 4
+    }
+  ],
+  "solution": {
+    "suspectId": "elias",
+    "proofIds": [
+      "access-log",
+      "locker-receipt"
+    ],
+    "explanation": "Elias Reed's badge (N-41) opened the archive at 21:08. Independently, the cloakroom attendant recorded the Aster case entering his assigned locker (12) at 21:09, in his presence. Together these contradict his claim of remaining in the shuttered east gallery. Neither motive nor the anonymous voicemail identifies the culprit by itself."
+  }
+}

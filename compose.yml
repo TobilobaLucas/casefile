@@ -1,0 +1,45 @@
+services:
+  web:
+    build: .
+    ports:
+      - "127.0.0.1:8088:80"
+    depends_on:
+      - api
+  api:
+    build: ./backend
+    environment:
+      SPRING_PROFILES_ACTIVE: postgres
+      DATABASE_URL: jdbc:postgresql://db:5432/casefile
+      DATABASE_USER: casefile
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD:-casefile-local-only}
+      GENERATOR_URL: http://generator:8001
+      GENERATOR_SECRET: ${GENERATOR_SECRET:-local-development-only}
+    depends_on:
+      db:
+        condition: service_healthy
+      generator:
+        condition: service_healthy
+  generator:
+    build: ./generator
+    environment:
+      GENERATOR_SECRET: ${GENERATOR_SECRET:-local-development-only}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8001/health', timeout=2)"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: casefile
+      POSTGRES_USER: casefile
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-casefile-local-only}
+    volumes:
+      - casefile-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U casefile -d casefile"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+volumes:
+  casefile-data:
